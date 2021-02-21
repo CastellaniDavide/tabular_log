@@ -29,8 +29,11 @@ class tabular_log:
 	def header(self):
 		"""If not exist add header
 		"""
-		if open(self.file, 'r+').readline() == "":
-			open(self.file, 'r+').write(str(self.fieldnames)[1:-1].replace("'", "\"").replace("\", \"", "\",\"") + "\n")
+		try:
+			if open(self.file, 'r+').readline() == "":
+				assert(False)
+		except:
+			open(self.file, 'w+').write(str(self.fieldnames)[1:-1].replace("'", "\"").replace("\", \"", "\",\"") + "\n")
 
 	def print(self, message):
 		"""Write one line
