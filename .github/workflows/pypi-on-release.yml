@@ -30,4 +30,4 @@ jobs:
         twine upload dist/* --verbose
     - name: Test installation
       run: |
-        pip install tabular_log-castellani-davide
+        pip install tabular_log
