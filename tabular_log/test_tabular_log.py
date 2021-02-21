@@ -1,17 +1,17 @@
 """Test tabular_log file
 """
-from tabular_log import *
+import __init__
 
 __author__ = "help@castellanidavide.it"
 __version__ = "2.0 2020-08-18"
 
 def test():
-	"""Tests the tabular_log function in the tabular_log class
-	Write here all test you want to do.
-	REMEMBER to test your programm you can't use __init__ function
+	"""Tests the tabular_log function(s)
 	"""
-	assert tabular_log.tabular_log() == "tabular_log", "test failed"
-	#assert tabular_log.<function>(<values>) == <the result(s) you would like to have>, "<the fail message>"
+	assert __init__.__author__ == "help@castellanidavide.it" , "Sanity test failed"
+	assert __init__.tabular_log() != "", "__init__ test failed"
+	assert (__init__.tabular_log()).print("Test") != "", "print test failed"
+	assert (__init__.tabular_log()).prints(["Test1","Test2"]) != "", "prints test failed"
 	
 if __name__ == "__main__":
 	test()
