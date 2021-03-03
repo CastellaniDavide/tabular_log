@@ -35,7 +35,15 @@ Creates and manage a tabular log.
  - python3 test_tabular_log.py
 
 # Changelog
- - [Version_01.01_2021-2-21](#Version_10_2021-2-21)
+ - [Version_02.01_2021-03-03](#Version_0201_2021-03-03)
+ - [Version_01.01_2021-2-21](#Version_0101_2021-2-21)
+
+## Version_02.01_2021-03-03
+ - Optimized log funtion
+ - Added some "standard" parameter
+ - Added the possibility to send log to the server
+ - Now faster, using threads
+ - Added verbose option
 
 ## Version_01.01_2021-2-21
  - Initial version
