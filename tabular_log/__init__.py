@@ -53,7 +53,7 @@ class tabular_log:
 		I open every time the file, because with this method if there is a crash I can be sure that all previous line are into it
 		"""
 		# If verbose print on the screen
-		if self.verbose = print(message)
+		if self.verbose: print(message)
 
 		# Add my values to given format_style
 		format_style = {**self.format_style, **{'title': f'{self.title}', 'PCName': f'{self.PCName}', 'start_time': f'{self.start}', 'message': f'{message}', 'ProcessID': f'{os.getpid()}', 'ThreadID': f'{threading.get_ident()}', 'message_time': f'{dt.now().timestamp()}', 'message_time_for_users': f'{dt.now().strftime("%c")}'}}
