@@ -7,7 +7,7 @@ from datetime import datetime as dt
 import urllib.request
 
 __author__ = "help@castellanidavide.it"
-__version__ = "02.01 2021-3-3"
+__version__ = "02.03 2021-3-3"
 
 class tabular_log:
 	def __init__ (
@@ -67,8 +67,16 @@ class tabular_log:
 		threading.Thread(target=self.add_to_the_file, args=(message_style,)).start()
 
 		# Send to server, this can take some time, so it will run into a Thread
-		threading.Thread(target=urllib.request.urlopen, args=(f"{self.serverlink}?Title={format_style['title']}&PCName={format_style['PCName']}&ExecutionCode={format_style['start_time']}&Message={format_style['message']}&ProcessID={format_style['ProcessID']}&ThreadID={format_style['ThreadID']}&MessageTime={format_style['message_time']}&MessageTimeForUsers={format_style['message_time_for_users']}".replace(" ", "%20"),)).start()
+		threading.Thread(target=self.send_to_server, args=(f"{self.serverlink}?Title={format_style['title']}&PCName={format_style['PCName']}&ExecutionCode={format_style['start_time']}&Message={format_style['message']}&ProcessID={format_style['ProcessID']}&ThreadID={format_style['ThreadID']}&MessageTime={format_style['message_time']}&MessageTimeForUsers={format_style['message_time_for_users']}".replace(" ", "%20"),)).start()
 		
+	def send_to_server(self, link):
+		"""Sends the message to the server
+		"""
+		try:
+			urllib.request.urlopen(link)
+		except:
+			self.send_to_server(link)
+
 	def add_to_the_file(self, message_style):
 		"""Add a log line into the file
 		"""
