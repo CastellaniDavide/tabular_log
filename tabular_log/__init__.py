@@ -7,7 +7,7 @@ from datetime import datetime as dt
 import urllib.request
 
 __author__ = "help@castellanidavide.it"
-__version__ = "02.03 2021-3-3"
+__version__ = "02.04 2021-3-17"
 
 class tabular_log:
 	def __init__ (
