@@ -18,7 +18,7 @@ class tabular_log:
 					message_style={'Title': '{title}', 'PCName': '{PCName}', 'ExecutionCode': '{start_time}', 'Message': '{message}', 'ProcessID': '{ProcessID}', 'ThreadID': '{ThreadID}', 'MessageTime': '{message_time}', 'MessageTimeForUsers': '{message_time_for_users}'},
 					format_style={},
 					serverlink="https://www.castellanidavide.it/other/log.php",
-					verbose=False
+					verbose=False,
 				):
 		"""Where it all begins
 		"""
@@ -67,7 +67,8 @@ class tabular_log:
 		threading.Thread(target=self.add_to_the_file, args=(message_style,)).start()
 
 		# Send to server, this can take some time, so it will run into a Thread
-		threading.Thread(target=self.send_to_server, args=(f"{self.serverlink}?Title={format_style['title']}&PCName={format_style['PCName']}&ExecutionCode={format_style['start_time']}&Message={format_style['message']}&ProcessID={format_style['ProcessID']}&ThreadID={format_style['ThreadID']}&MessageTime={format_style['message_time']}&MessageTimeForUsers={format_style['message_time_for_users']}".replace(" ", "%20"),)).start()
+		if serverlink != None:
+			threading.Thread(target=self.send_to_server, args=(f"{self.serverlink}?Title={format_style['title']}&PCName={format_style['PCName']}&ExecutionCode={format_style['start_time']}&Message={format_style['message']}&ProcessID={format_style['ProcessID']}&ThreadID={format_style['ThreadID']}&MessageTime={format_style['message_time']}&MessageTimeForUsers={format_style['message_time_for_users']}".replace(" ", "%20"),)).start()
 		
 	def send_to_server(self, link):
 		"""Sends the message to the server
