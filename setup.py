@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from requests import get
+from requests import get 
 
 setup(
       name='tabular_log',
